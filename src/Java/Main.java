@@ -2,13 +2,9 @@ package Java;
 
 public class Main {
     public static void main(String[] args) {
-        Set<Integer> set1 = new Set<Integer>(10);
-        Set<Integer> set2 = new Set<>(10);
-        for (int i = 0; i<11; i++) {
-            set1.add(i);
-        }
-        set1.view();
-        set1.add(3);
-        set1.union(set2);
+        Sort<Integer> srt = new Sort<>();
+        Integer[] arr = new Integer[]{19,83,-1,15,7, 10, 36, 27, 48};
+        srt.quickSort(arr);
+        srt.view();
     }
 }
