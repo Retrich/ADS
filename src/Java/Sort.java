@@ -13,30 +13,30 @@ public class Sort<T extends Comparable<T>> {
         System.out.println();
     }
 
-    //Метод сортировки пузырьком
+    // Метод сортировки пузырьком
     public void bubbleSort(T[] inputArray) {
         array = inputArray;
         int n = array.length;
-        int numOfPairs = n-1; //определяем кол-ва пар элементов для сравнения
-        int kswaps; //счётчик для перестановок
+        int numOfPairs = n-1; // определяем кол-ва пар элементов для сравнения
+        int kswaps; // счётчик для перестановок
         view();
-        do { //повторяем пока не удовлетворим условие цикла
-            kswaps = 0; //обнуляем счётчик
-            for (int i = 0; i < numOfPairs; i++) { //попарно сравниваем элементы
+        do { // повторяем пока не удовлетворим условие цикла
+            kswaps = 0; // обнуляем счётчик
+            for (int i = 0; i < numOfPairs; i++) { // попарно сравниваем элементы
                 if (array[i].compareTo(array[i + 1]) > 0) { //true если array[i] > array[i + 1]
                     T temp = array[i];
                     array[i] = array[i + 1];
-                    array[i + 1] = temp; //меняем местами
-                    kswaps++; //указываем что перестановки были и нужно проверить массив ещё раз
+                    array[i + 1] = temp; // меняем местами
+                    kswaps++; // указываем что перестановки были и нужно проверить массив ещё раз
                     view();
                 }
             }
             numOfPairs--;
-        } while (kswaps != 0); //делаем пока kswaps не станет 0
+        } while (kswaps != 0); // делаем пока kswaps не станет 0
         view();
     }
 
-    //Метод ShakerSort первый итерацию проходит пузырьком, второй снизу вверх и дальше по новой сверху-вниз->снизу-вверх...
+    // Метод ShakerSort первый итерацию проходит пузырьком, второй снизу вверх и дальше по новой сверху-вниз->снизу-вверх...
     public void shakerSort(T[] array) {
         int left = 0;
         int right = array.length - 1;
@@ -186,21 +186,6 @@ public class Sort<T extends Comparable<T>> {
         // Копируем отсортированные элементы в исходный массив
         System.arraycopy(output, 0, inputArray, 0, inputArray.length);
     }
-
-    //Метод MergeSort рекурсивная сортировка слиянием
-    //есть два отсортированных массива
-    //a 5 6 9 11 17
-    //b 1 4 7 8 15
-    //сравниваем
-
-    //public void MergeSort<T>(T[] array, int p, int r) {
-    //  if(p<r) {
-    //      int q = (p+r)/2; (округляем до 2)
-    //      MergeSort(arr, p, q)
-    //      MergeSort(arr, q+1, r)
-    //      Merge() <- Слияние отсортированных массивов
-    //  }
-    //}
 
     public void mergeSort(T[] array) {
         if (array.length <= 1) return;
